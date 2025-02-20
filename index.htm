@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.Luminous Intellectai.cloud/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Jan 2025 18:07:30 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminous Intellect AI - AI Mining Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.iife.min.js"></script>
+    <link href="css2?family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="matrix-overlay"></div>
+    <div class="scan-line"></div>
+
+    <nav class="nav-bar">
+        <div class="logo">
+            <div class="logo-glitch">Luminous Intellect AI</div>
+            <div class="status-text">SystemStatus: Online</div>
+        </div>
+        <div class="nav-controls">
+            <div class="resource-display">
+                <span class="credits">Credits: </span>
+                <span class="value" id="userCredits">0</span>
+                <span class="unit">CC</span>
+            </div>
+            <a href="https://t.me/" target="_blank" class="cyber-button twitter">
+                <span class="btn-text">Telegram</span>
+                <span class="btn-glitch"></span>
+            </a>
+            <a href="https://x.com/LuminousIntAI" target="_blank" class="cyber-button twitter">
+                <span class="btn-text">Twitter</span>
+                <span class="btn-glitch"></span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="terminal">
+        <section class="mining-interface">
+            <div class="terminal-header">
+                <h1>// AI Data Mining Interface v2.0</h1>
+                <div class="system-stats">
+                    <div class="stat">CPU Load: <span id="cpuLoad">0%</span></div>
+                    <div class="stat">Memory: <span id="memoryUsage">0/512 TB</span></div>
+                    <div class="stat">Network: <span id="networkSpeed">0 Pb/s</span></div>
+                </div>
+            </div>
+
+            <div class="mining-grid">
+                <div class="mining-node" data-type="data">
+                    <div class="node-header">Data Core</div>
+                    <div class="node-visual">
+                        <canvas class="node-canvas"></canvas>
+                    </div>
+                    <div class="node-stats">
+                        <div class="stat">Efficiency: 85%</div>
+                        <div class="stat">AI Level: 2</div>
+                        <div class="stat">Security: Medium</div>
+                    </div>
+                    <button class="hack-button">Initialize Hack</button>
+                </div>
+
+                <div class="mining-node" data-type="quantum">
+                    <div class="node-header">Quantum Node</div>
+                    <div class="node-visual">
+                        <canvas class="node-canvas"></canvas>
+                    </div>
+                    <div class="node-stats">
+                        <div class="stat">Efficiency: 95%</div>
+                        <div class="stat">AI Level: 3</div>
+                        <div class="stat">Security: High</div>
+                    </div>
+                    <button class="hack-button">Initialize Hack</button>
+                </div>
+
+                <div class="mining-node" data-type="neural">
+                    <div class="node-header">Neural Network</div>
+                    <div class="node-visual">
+                        <canvas class="node-canvas"></canvas>
+                    </div>
+                    <div class="node-stats">
+                        <div class="stat">Efficiency: 75%</div>
+                        <div class="stat">AI Level: 4</div>
+                        <div class="stat">Security: Maximum</div>
+                    </div>
+                    <button class="hack-button">Initialize Hack</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="hacking-interface hidden">
+            <div class="hack-display">
+                <div class="hack-header">
+                    <h2>// Active Exploitation</h2>
+                    <div class="hack-progress">
+                        <div class="progress-bar"></div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+                <div class="terminal-window">
+                    <div class="terminal-output"></div>
+                    <div class="input-line">
+                        <span class="prompt">>></span>
+                        <input type="text" class="terminal-input" placeholder="Enter hack command...">
+                    </div>
+                </div>
+                <div class="ai-assistant">
+                    <div class="ai-header">AI Assistant Status</div>
+                    <div class="ai-output"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upgrade-interface">
+            <h2>// System Upgrades</h2>
+            <div class="upgrade-grid">
+                <div class="upgrade-card">
+                    <div class="upgrade-header">AI Core Upgrade</div>
+                    <div class="upgrade-description">
+                        Enhance your AI's hacking capabilities
+                    </div>
+                    <div class="upgrade-cost">Cost: 1000 CC</div>
+                    <button class="cyber-button">Upgrade</button>
+                </div>
+
+                <div class="upgrade-card">
+                    <div class="upgrade-header">Neural Amplifier</div>
+                    <div class="upgrade-description">
+                        Boost neural network processing speed
+                    </div>
+                    <div class="upgrade-cost">Cost: 2000 CC</div>
+                    <button class="cyber-button">Upgrade</button>
+                </div>
+
+                <div class="upgrade-card">
+                    <div class="upgrade-header">Quantum Accelerator</div>
+                    <div class="upgrade-description">
+                        Increase quantum computing efficiency
+                    </div>
+                    <div class="upgrade-cost">Cost: 3000 CC</div>
+                    <button class="cyber-button">Upgrade</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function() {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function(msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        } else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+</body>
+
+
+<!-- Mirrored from www.Luminous Intellectai.cloud/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Jan 2025 18:07:32 GMT -->
+
+</html>

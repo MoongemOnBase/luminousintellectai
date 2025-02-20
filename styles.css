@@ -1,0 +1,573 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent: #22ff00;
+    --accent-dark: #22ff00;
+    --error: #22ff00;
+    --success: #22ff00;
+    --grid-line: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Matrix Effect Overlay */
+
+.matrix-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: linear-gradient( 0deg, transparent 0%, rgba(32, 255, 77, 0.2) 50%, transparent 100%);
+    animation: matrix-scan 8s linear infinite;
+}
+
+.scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.1;
+    animation: scan 6s linear infinite;
+}
+
+@keyframes matrix-scan {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Navigation */
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--grid-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-glitch {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    position: relative;
+    text-shadow: 2px 2px var(--accent);
+}
+
+.logo-glitch::before,
+.logo-glitch::after {
+    content: 'Luminous Intellect AI';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-glitch::before {
+    animation: glitch-1 3s infinite linear alternate-reverse;
+    color: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px);
+}
+
+.logo-glitch::after {
+    animation: glitch-2 2s infinite linear alternate-reverse;
+    color: #ff0033;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translate(2px);
+}
+
+@keyframes glitch-1 {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-2px, 1px);
+        opacity: 0.5;
+        text-shadow: -1px 0 var(--accent);
+    }
+    75% {
+        transform: translate(1px, -1px);
+        opacity: 0.7;
+        text-shadow: 1px 0 var(--accent);
+    }
+}
+
+@keyframes glitch-2 {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(2px, -1px);
+        opacity: 0.5;
+        text-shadow: 1px 0 #ff0033;
+    }
+    75% {
+        transform: translate(-1px, 1px);
+        opacity: 0.7;
+        text-shadow: -1px 0 #ff0033;
+    }
+}
+
+.status-text {
+    font-size: 0.8rem;
+    color: var(--accent);
+    opacity: 0.8;
+    margin-top: 4px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Cyber Buttons */
+
+.cyber-button {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+.cyber-button:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+/* Mining Interface */
+
+.terminal {
+    padding: 80px 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mining-interface {
+    background: var(--bg-secondary);
+    border: 1px solid var(--grid-line);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.terminal-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--grid-line);
+    padding-bottom: 1rem;
+}
+
+.system-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.stat {
+    color: var(--text-secondary);
+}
+
+/* Mining Grid */
+
+.mining-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.mining-node {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--grid-line);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mining-node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--accent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mining-node:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.mining-node:hover .node-header {
+    text-shadow: 0 0 8px var(--accent);
+}
+
+.mining-node[data-type="data"] .node-visual {
+    background: linear-gradient(45deg, rgba(255, 116, 209, 0.1), rgba(255, 126, 242, 0.3));
+    position: relative;
+    overflow: hidden;
+}
+
+.mining-node[data-type="data"] .node-visual::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient( 90deg, transparent, transparent 20px, rgba(255, 133, 251, 0.1) 20px, rgba(255, 140, 255, 0.1) 40px);
+    animation: dataStream 2s linear infinite;
+}
+
+.mining-node[data-type="data"] .node-visual::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 94, 239, 0.5);
+    top: 50%;
+    animation: dataScan 3s ease-in-out infinite;
+}
+
+@keyframes dataStream {
+    0% {
+        transform: translateX(-40px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes dataScan {
+    0%,
+    100% {
+        transform: translateY(-50px) scaleY(1);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50px) scaleY(2);
+        opacity: 1;
+    }
+}
+
+.mining-node[data-type="quantum"] .node-visual {
+    background: radial-gradient(circle at center, rgba(255, 117, 241, 0.2), transparent);
+    position: relative;
+}
+
+.mining-node[data-type="quantum"] .node-visual::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 112, 255, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: quantumPulse 2s ease-in-out infinite;
+}
+
+.mining-node[data-type="quantum"] .node-visual::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(245, 109, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(255, 119, 241, 0.1) 0%, transparent 50%);
+    animation: quantumShift 4s linear infinite;
+}
+
+@keyframes quantumPulse {
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes quantumShift {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mining-node[data-type="neural"] .node-visual {
+    background: linear-gradient(135deg, rgba(253, 121, 255, 0.3), rgba(255, 126, 251, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.mining-node[data-type="neural"] .node-visual::before,
+.mining-node[data-type="neural"] .node-visual::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, transparent 95%, rgba(238, 131, 255, 0.1) 95%), linear-gradient(transparent 95%, rgba(253, 129, 255, 0.1) 95%);
+    background-size: 20px 20px;
+    animation: neuralGrid 3s linear infinite;
+}
+
+.mining-node[data-type="neural"] .node-visual::after {
+    background-size: 10px 10px;
+    opacity: 0.5;
+    animation: neuralGrid 2s linear infinite reverse;
+}
+
+@keyframes neuralGrid {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-20px, -20px);
+    }
+}
+
+.node-header {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.node-visual {
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 0, 0, 0.5);
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.node-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.node-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.hack-button {
+    width: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hack-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.1), transparent 70%);
+    transform: scale(0);
+    transition: transform 0.3s ease-out;
+}
+
+.hack-button:hover::before {
+    transform: scale(1);
+}
+
+.hack-button:hover {
+    text-shadow: 0 0 8px var(--accent);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+/* Hacking Interface */
+
+.hacking-interface {
+    background: var(--bg-secondary);
+    border: 1px solid var(--grid-line);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.terminal-window {
+    background: var(--bg-primary);
+    border: 1px solid var(--grid-line);
+    padding: 1rem;
+    height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+}
+
+.terminal-output {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prompt {
+    color: var(--accent);
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: monospace;
+    width: 100%;
+    outline: none;
+}
+
+/* Upgrade Interface */
+
+.upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.upgrade-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--grid-line);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1);
+}
+
+.upgrade-header {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.upgrade-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    min-height: 60px;
+}
+
+.upgrade-cost {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+    .mining-grid,
+    .upgrade-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mining-grid,
+    .upgrade-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-bar {
+        padding: 0 1rem;
+    }
+    .system-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
